@@ -1,6 +1,7 @@
 // CLAUDE
 // 
-import * as THREE from 'three';
+// Rimuovi l'import
+// Usa direttamente THREE.Mesh, THREE.Vector3 ecc.
 
 let group;
 const ringMeshes = [];

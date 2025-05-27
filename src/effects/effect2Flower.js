@@ -1,4 +1,5 @@
-import * as THREE from 'three';
+// Rimuovi l'import
+// Usa direttamente THREE.Mesh, THREE.Vector3 ecc.
 import { EffectSettings } from '../config.js';
 
 let flower;
