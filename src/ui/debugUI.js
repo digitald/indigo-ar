@@ -1,9 +1,9 @@
-import { EffectSettings } from '../config.js';
+// import { EffectSettings } from '../config.js';
 
 // Salva le cartelle per poterle mostrare/nascondere
 let trailFolder, flowerFolder;
 
-export function setupDebugUI() {
+function setupDebugUI() {
   const gui = new dat.GUI({ width: 300 });
   gui.domElement.style.zIndex = '999';
 

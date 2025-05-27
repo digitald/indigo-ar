@@ -1,11 +1,11 @@
-import { setEffect } from "../StateManager.js";
+// import { setEffect } from "../StateManager.js";
 
 let lastGesture = null;
 
 /**
  * Riconosce gesto da landmarks e aggiorna l'effetto attivo
  */
-export function detectGesture(landmarks) {
+function detectGesture(landmarks) {
   if (!landmarks || landmarks.length < 21) return;
 
   const wrist = landmarks[0];

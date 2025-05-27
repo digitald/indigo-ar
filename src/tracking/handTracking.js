@@ -1,10 +1,10 @@
 let onResultsCallback = () => {};
 
-export function subscribeToLandmarks(callback) {
+function subscribeToLandmarks(callback) {
   onResultsCallback = callback;
 }
 
-export function initHandTracking(videoElement) {
+function initHandTracking(videoElement) {
   const canvasElement = document.createElement("canvas");
   canvasElement.id = "hands-canvas";
   canvasElement.style.position = "fixed";

@@ -3,9 +3,9 @@
 
 let renderer, scene, camera;
 
-export { scene };
+ { scene };
 
-export function initARCanvas() {
+ function initARCanvas() {
   scene = new THREE.Scene();
 
   const aspect = window.innerWidth / window.innerHeight;

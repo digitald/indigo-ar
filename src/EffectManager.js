@@ -1,53 +1,56 @@
-import * as Effect1 from './effects/effect5Rings.js';
-import * as Effect2 from './effects/effect2Flower.js';
-import * as Effect3 from './effects/effect6Lines.js';
-
-import { subscribe } from './StateManager.js';
+// EffectManager.js - Versione senza import/export
 
 let currentModule = null;
 let currentId = null;
 let currentScene = null;
 
+// Oggetto contenitore per tutti gli effetti
+const Effects = {};
+
+// Registra gli effetti nell'oggetto Effects
+function registerEffect(id, effectModule) {
+  Effects[id] = effectModule;
+}
+
 /**
  * Inizializza il gestore degli effetti.
  * Passa la scena di Three.js per iniettare/rimuovere gli oggetti.
  */
-export function initEffectManager(scene) {
+function initEffectManager(scene) {
   currentScene = scene;
 
-  subscribe((state) => {
-    if (state.effect !== currentId) {
-      switchEffect(state.effect);
-    }
+  // Assumendo che hai una funzione subscribe disponibile globalmente
+  if (window.subscribe) {
+    window.subscribe((state) => {
+      if (state.effect !== currentId) {
+        switchEffect(state.effect);
+      }
 
-    if (currentModule) {
-      currentModule.update(state);
-    }
-  });
+      if (currentModule && currentModule.update) {
+        currentModule.update(state);
+      }
+    });
+  }
 }
 
 function switchEffect(id) {
-  if (currentModule?.dispose) {
+  // Disponi l'effetto corrente
+  if (currentModule && currentModule.dispose) {
     currentModule.dispose(currentScene);
   }
 
   currentId = id;
+  currentModule = Effects[id] || null;
 
-  switch (id) {
-    case 1:
-      currentModule = Effect1;
-      break;
-    case 2:
-      currentModule = Effect2;
-      break;
-    case 3:
-      currentModule = Effect3;
-      break;
-    default:
-      currentModule = null;
-  }
-
-  if (currentModule?.init) {
+  // Inizializza il nuovo effetto
+  if (currentModule && currentModule.init) {
     currentModule.init(currentScene);
   }
 }
+
+// Esponi le funzioni globalmente
+window.EffectManager = {
+  init: initEffectManager,
+  switch: switchEffect,
+  register: registerEffect
+};

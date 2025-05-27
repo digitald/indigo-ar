@@ -8,14 +8,14 @@ const listeners = new Set();
 /**
  * 🔄 Ottieni lo stato corrente
  */
-export function getState() {
+ function getState() {
   return { ...state };
 }
 
 /**
  * 🧩 Imposta l’effetto attivo
  */
-export function setEffect(effectId) {
+function setEffect(effectId) {
   if (state.effect !== effectId) {
     state.effect = effectId;
     notify();
@@ -25,7 +25,7 @@ export function setEffect(effectId) {
 /**
  * 🤝 Aggiorna i landmarks della mano
  */
-export function setLandmarks(landmarks) {
+ function setLandmarks(landmarks) {
   state.landmarks = landmarks;
   notify();
 }
@@ -33,7 +33,7 @@ export function setLandmarks(landmarks) {
 /**
  * 👂 Sottoscrivi cambiamenti di stato
  */
-export function subscribe(callback) {
+ function subscribe(callback) {
   listeners.add(callback);
   return () => listeners.delete(callback); // per rimuovere la subscription
 }

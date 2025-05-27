@@ -1,4 +1,4 @@
-export function setupResponsiveVideo(videoElement) {
+ function setupResponsiveVideo(videoElement) {
   function resize() {
     const videoAspect = videoElement.videoWidth / videoElement.videoHeight;
     const windowAspect = window.innerWidth / window.innerHeight;

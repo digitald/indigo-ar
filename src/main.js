@@ -1,3 +1,5 @@
+
+/*
 import { initHandTracking, subscribeToLandmarks } from './tracking/handTracking.js';
 import { initARCanvas, scene } from './ARCanvas.js';
 import { setLandmarks } from './StateManager.js';
@@ -9,7 +11,7 @@ import { subscribe } from './StateManager.js';
 
 import { setupResponsiveVideo } from './utils/resizeVideo.js';
 
-
+*/
 
 
 
@@ -77,7 +79,7 @@ subscribe((state) => {
   label.textContent = labelText;
 });
 
-import { setupDebugUI } from './ui/debugUI.js';
+// import { setupDebugUI } from './ui/debugUI.js';
 
 setupDebugUI();
 

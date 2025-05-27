@@ -1,4 +1,4 @@
-export const EffectSettings = {
+const EffectSettings = {
   trail: {
     radius: 0.025,
     lifetime: 1.2,
